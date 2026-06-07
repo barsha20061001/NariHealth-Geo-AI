@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ArrowUp, X } from "lucide-react";
 
@@ -459,7 +460,8 @@ const Counter = ({ end, suffix = "" }) => {
     </p>
 
     <div className="mt-8 flex justify-center gap-5">
-      <button className="bg-white text-slate-950 px-8 py-4 rounded-2xl font-bold">
+      <button href="/breast-cancer-predict"
+      className="bg-white text-slate-950 px-8 py-4 rounded-2xl font-bold">
         Start Screening
       </button>
 
