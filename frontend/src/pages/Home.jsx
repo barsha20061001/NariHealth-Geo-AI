@@ -18,6 +18,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 
+
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -431,9 +432,17 @@ const Counter = ({ end, suffix = "" }) => {
             {item.desc}
           </p>
 
-          <button className="mt-3 opacity-0 group-hover:opacity-100 transition duration-300 text-pink-300 font-semibold">
+          {item.title === "Breast Cancer" ? (
+  <Link to="/breast-cancer-details">
+    <button className="mt-3 opacity-0 group-hover:opacity-100 transition duration-300 text-pink-300 font-semibold">
+      Learn More →
+    </button>
+  </Link>
+) : (
+  <button className="mt-3 opacity-0 group-hover:opacity-100 transition duration-300 text-pink-300 font-semibold">
     Learn More →
   </button>
+)}
         </div>
       </div>
     ))}

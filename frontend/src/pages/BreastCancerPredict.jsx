@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function BreastCancerPredict() {
   const [values, setValues] = useState(Array(30).fill(""));
@@ -13,6 +14,8 @@ export default function BreastCancerPredict() {
     "worst radius", "worst texture", "worst perimeter", "worst area", "worst smoothness",
     "worst compactness", "worst concavity", "worst concave points", "worst symmetry", "worst fractal dimension"
   ];
+
+  const navigate = useNavigate();
 
   const [csvFile, setCsvFile] = useState(null);
 const [csvResult, setCsvResult] = useState(null);
@@ -111,8 +114,26 @@ const [csvResult, setCsvResult] = useState(null);
 };
 
   return (
-    <div className="min-h-screen bg-pink-50 px-6 py-10">
-      <div className="max-w-6xl mx-auto bg-white rounded-[2rem] shadow-2xl p-8 border border-pink-100">
+    <div className=" min-h-screen bg-pink-50 px-6 pt-4 pb-10 ">
+
+        <div className="flex justify-end gap-3 mb-0">
+  <button
+    onClick={() => navigate(-1)}
+    className="bg-gray-600 text-white px-4 py-2 rounded-xl font-semibold hover:bg-gray-700"
+  >
+     Back
+  </button>
+
+  <button
+    onClick={() => navigate("/")}
+    className="bg-pink-600 text-white px-4 py-2 rounded-xl font-semibold hover:bg-pink-700"
+  >
+     Home
+  </button>
+</div>
+
+        
+      <div className="max-w-6xl mx-auto bg-white rounded-[2rem] shadow-2xl p-8 border border-pink-200">
         <h1 className="text-4xl font-black text-slate-950">
           Breast Cancer Risk Prediction
         </h1>
@@ -124,21 +145,33 @@ const [csvResult, setCsvResult] = useState(null);
 
         <div className="mt-6 mb-6 p-4 border rounded-xl bg-pink-50">
   <h3 className="text-lg font-bold mb-3">
-    Upload CSV Dataset
+    Upload CSV Report
   </h3>
+   
+     <div className="flex items-center gap-4 flex-wrap">
+    
+    <label className="cursor-pointer bg-purple-600 text-white px-5 py-3 rounded-xl font-semibold hover:bg-purple-700">
+      Choose CSV File
+      <input
+        type="file"
+        accept=".csv"
+        onChange={(e) => setCsvFile(e.target.files[0])}
+        className="hidden"
+      />
+    </label>
 
-  <input
-    type="file"
-    accept=".csv"
-    onChange={(e) => setCsvFile(e.target.files[0])}
-  />
+    <span className="text-gray-700 font-medium">
+      {csvFile ? csvFile.name : "No CSV file selected"}
+    </span>
 
-  <button
-    onClick={predictCSV}
-    className="ml-4 bg-purple-600 text-white px-4 py-2 rounded-xl"
-  >
-    Predict CSV
-  </button>
+    <button
+      onClick={predictCSV}
+      className="bg-pink-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-pink-700"
+    >
+      Predict CSV
+    </button>
+
+  </div>
 </div>
 
         <div className="mt-6 flex gap-4">
@@ -157,25 +190,7 @@ const [csvResult, setCsvResult] = useState(null);
           </button>
         </div>
 
-        <div className="mt-8 p-5 border border-purple-200 rounded-2xl bg-purple-50">
-  <h2 className="text-xl font-black text-purple-700">
-    Upload CSV Report
-  </h2>
 
-  <div className="mt-4 flex gap-4 items-center">
-    <input
-      type="file"
-      accept=".csv"
-      onChange={(e) => setCsvFile(e.target.files[0])}
-    />
-
-    <button
-      onClick={uploadCSV}
-      className="bg-purple-600 text-white px-5 py-2 rounded-xl font-bold"
-    >
-      Predict CSV
-    </button>
-  </div>
 
   {csvResult && (
     <div className="mt-5 bg-white p-4 rounded-xl border">
@@ -184,7 +199,7 @@ const [csvResult, setCsvResult] = useState(null);
       <p><b>Confidence:</b> {csvResult.confidence}%</p>
     </div>
   )}
-</div>
+
 
         <div className="grid md:grid-cols-3 gap-4 mt-8">
           {features.map((feature, index) => (
