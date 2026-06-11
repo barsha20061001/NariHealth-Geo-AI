@@ -49,19 +49,28 @@ export default function AnemiaCsvUpload() {
           AI Anemia CSV Screening
         </h1>
 
-        <input
-          type="file"
-          accept=".csv"
-          onChange={(e) => setFile(e.target.files[0])}
-          className="mb-4"
-        />
+        <div className="border-2 border-dashed border-pink-300 rounded-xl p-6 text-center mb-6 bg-pink-50">
+  <label
+    htmlFor="csv-upload"
+    className="cursor-pointer text-pink-600 font-semibold text-lg"
+  >
+     Click here to upload CSV
+  </label>
 
-        <button
-          onClick={handleUpload}
-          className="bg-pink-600 text-white px-6 py-3 rounded-lg hover:bg-pink-700"
-        >
-          {loading ? "Analyzing..." : "Upload & Predict"}
-        </button>
+  <p className="text-gray-500 mt-2">
+    {file ? file.name : "No file selected"}
+  </p>
+
+  <input
+    id="csv-upload"
+    type="file"
+    accept=".csv"
+    onChange={(e) => setFile(e.target.files[0])}
+    className="hidden"
+  />
+</div>
+
+        
 
         {result && (
           <div className="mt-8 border rounded-xl p-6 bg-pink-50">
@@ -88,11 +97,30 @@ export default function AnemiaCsvUpload() {
           </div>
         )}
 
-        <Link to="/anemia-details">
-          <button className="mt-6 bg-gray-700 text-white px-6 py-2 rounded-lg">
-            Back
-          </button>
-        </Link>
+        <div className="flex gap-4 mt-6">
+  <button
+    onClick={handleUpload}
+    className="bg-pink-600 text-white px-6 py-3 rounded-lg"
+  >
+    {loading ? "Analyzing..." : "Upload & Predict"}
+  </button>
+
+  <Link to="/anemia-details">
+    <button className="bg-gray-700 text-white px-6 py-3 rounded-lg">
+      Back
+    </button>
+  </Link>
+
+  <Link to="/">
+  <button className="bg-gray-700 text-white px-6 py-3 rounded-lg">
+    Home
+  </button>
+</Link>
+</div>
+        
+        
+        
+        
 
       </div>
     </div>

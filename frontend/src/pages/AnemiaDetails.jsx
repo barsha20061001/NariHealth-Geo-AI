@@ -9,11 +9,20 @@ export default function AnemiaDetails() {
 
       <div className="absolute top-4 right-10 flex gap-3">
         <button
-          onClick={() => navigate(-1)}
-          className="bg-gray-600 text-white px-4 py-2 rounded-xl"
-        >
-          Back
-        </button>
+  onClick={() => {
+    navigate("/");
+
+    setTimeout(() => {
+      const section = document.getElementById("hotspots");
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 300);
+  }}
+  className="bg-gray-600 text-white px-4 py-2 rounded-xl"
+>
+  Back
+</button>
 
         <button
           onClick={() => navigate("/")}
@@ -72,17 +81,21 @@ export default function AnemiaDetails() {
             Assess anemia risk using simple health indicators.
           </p>
 
-          <Link to="/anemia-predict">
-            <button className="mt-6 bg-pink-600 text-white px-6 py-3 rounded-xl font-bold">
-              Check Anemia Risk
-            </button>
-          </Link>
 
-          <Link to="/anemia-csv-upload">
-  <button className="bg-pink-600 text-white px-6 py-3 rounded-lg">
-    Upload CSV
-  </button>
-</Link>
+        <div className="mt-6 flex">
+  <Link to="/anemia-predict">
+    <button className="bg-pink-600 text-white px-6 py-3 rounded-xl font-bold">
+      Check Anemia Risk
+    </button>
+  </Link>
+
+  <Link to="/anemia-csv-upload">
+    <button className="ml-4 bg-pink-600 text-white px-6 py-3 rounded-xl font-bold">
+      Upload CSV
+    </button>
+  </Link>
+</div>
+
         </div>
 
         
