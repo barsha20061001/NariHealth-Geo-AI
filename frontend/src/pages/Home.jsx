@@ -464,6 +464,12 @@ const Counter = ({ end, suffix = "" }) => {
       Learn More →
     </button>
   </Link>
+  ) : item.title === "Menstrual Disorders" ? (
+  <Link to="/period-details">
+    <button className="mt-3 opacity-0 group-hover:opacity-100 transition duration-300 text-pink-300 font-semibold">
+      Learn More →
+    </button>
+  </Link>
 
 
 ) : (

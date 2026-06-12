@@ -13,6 +13,9 @@ import AnemiaCsvUpload from "./pages/AnemiaCsvUpload";
 import CervicalCancerDetails from "./pages/CervicalCancerDetails";
 import CervicalCancerPredict from "./pages/CervicalCancerPredict";
 import CervicalCancerCsvUpload from "./pages/CervicalCancerCsvUpload";
+import PeriodDetails from "./pages/PeriodDetails";
+import PeriodRisk from "./pages/PeriodRisk";
+import PeriodCsvUpload from "./pages/PeriodCsvUpload";
 
 
 
@@ -31,14 +34,18 @@ function App() {
         <Route path="/anemia-predict" element={<AnemiaPredict />} />
         <Route path="/anemia-details" element={<AnemiaDetails />} />
         <Route path="/anemia-csv-upload" element={<AnemiaCsvUpload />}/>
+        <Route path="/period-details" element={<PeriodDetails />} />
+        <Route path="/period-risk" element={<PeriodRisk />} />
         
         <Route
   path="/cervical-cancer-predict"
   element={<CervicalCancerPredict />}
 />
+<Route path="/period-csv-upload" element={<PeriodCsvUpload />} />
         
         <Route path="/cervical-cancer-details" element={<CervicalCancerDetails />} />
         <Route path="/cervical-cancer-csv-upload" element={<CervicalCancerCsvUpload />} />
+
       </Routes>
     </BrowserRouter>
   );

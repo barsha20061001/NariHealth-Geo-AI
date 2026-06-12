@@ -205,6 +205,55 @@ async def predict_cervical_csv(file: UploadFile = File(...)):
         "message": "CSV prediction completed. This is AI screening, not medical diagnosis."
     }
 
+@app.post("/predict-period-csv")
+async def predict_period_csv(file: UploadFile = File(...)):
+    df = pd.read_csv(file.file, header=None)
+
+    row = df.iloc[0].tolist()
+
+    age = float(row[0])
+    cycle_length = float(row[1])
+    period_duration = float(row[2])
+    pain_level = float(row[3])
+    heavy_bleeding = int(row[4])
+    irregular_cycles = int(row[5])
+    fatigue = int(row[6])
+    mood_swings = int(row[7])
+
+    score = 0
+
+    if cycle_length < 21 or cycle_length > 35:
+        score += 2
+    if period_duration > 7:
+        score += 2
+    if pain_level >= 8:
+        score += 2
+    if heavy_bleeding == 1:
+        score += 2
+    if irregular_cycles == 1:
+        score += 2
+    if fatigue == 1:
+        score += 1
+    if mood_swings == 1:
+        score += 1
+
+    if score >= 7:
+        risk = "High Risk"
+        message = "Please consult a gynecologist for proper evaluation."
+    elif score >= 4:
+        risk = "Moderate Risk"
+        message = "Monitor symptoms and consider medical consultation."
+    else:
+        risk = "Low Risk"
+        message = "Your symptoms appear low risk, but regular tracking is important."
+
+    return {
+        "prediction": "Menstrual Health Risk Assessment",
+        "risk": risk,
+        "score": score,
+        "message": message
+    }    
+
 
 
 
