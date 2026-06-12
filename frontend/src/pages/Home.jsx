@@ -458,6 +458,13 @@ const Counter = ({ end, suffix = "" }) => {
       Learn More →
     </button>
   </Link> 
+  ): item.title === "Cervical Cancer" ? (
+  <Link to="/cervical-cancer-details">
+    <button className="mt-3 opacity-0 group-hover:opacity-100 transition duration-300 text-pink-300 font-semibold">
+      Learn More →
+    </button>
+  </Link>
+
 
 ) : (
   <button className="mt-3 opacity-0 group-hover:opacity-100 transition duration-300 text-pink-300 font-semibold">

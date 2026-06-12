@@ -10,6 +10,11 @@ import UterusCancerRisk from "./pages/UterusCancerRisk";
 import AnemiaPredict from "./pages/AnemiaPredict";
 import AnemiaDetails from "./pages/AnemiaDetails";
 import AnemiaCsvUpload from "./pages/AnemiaCsvUpload";
+import CervicalCancerDetails from "./pages/CervicalCancerDetails";
+import CervicalCancerPredict from "./pages/CervicalCancerPredict";
+import CervicalCancerCsvUpload from "./pages/CervicalCancerCsvUpload";
+
+
 
 function App() {
   return (
@@ -26,6 +31,14 @@ function App() {
         <Route path="/anemia-predict" element={<AnemiaPredict />} />
         <Route path="/anemia-details" element={<AnemiaDetails />} />
         <Route path="/anemia-csv-upload" element={<AnemiaCsvUpload />}/>
+        
+        <Route
+  path="/cervical-cancer-predict"
+  element={<CervicalCancerPredict />}
+/>
+        
+        <Route path="/cervical-cancer-details" element={<CervicalCancerDetails />} />
+        <Route path="/cervical-cancer-csv-upload" element={<CervicalCancerCsvUpload />} />
       </Routes>
     </BrowserRouter>
   );

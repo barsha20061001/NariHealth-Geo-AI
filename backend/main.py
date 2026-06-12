@@ -24,6 +24,9 @@ pcos_model = joblib.load("../ml-models/pcos_model/model.pkl")
 breast_model = breast_model_data["model"]
 breast_features = breast_model_data["features"]
 anemia_model = joblib.load("models/anemia_model/model.pkl")
+cervical_model = joblib.load(
+    "models/cervical_model/model.pkl"
+)
 
 class BreastCancerInput(BaseModel):
     values: list[float]
@@ -33,6 +36,9 @@ class PCOSInput(BaseModel):
 
 class AnemiaInput(BaseModel):
     values: List[float]    
+
+class CervicalInput(BaseModel):
+    values: List[float]
 
 @app.get("/")
 def home():
@@ -159,4 +165,51 @@ async def predict_anemia_csv(file: UploadFile = File(...)):
         "risk": "High Risk" if prediction == 1 else "Low Risk",
         "confidence": confidence,
         "message": "CSV prediction completed. This is AI screening, not medical diagnosis."
-    }     
+    }   
+
+
+
+
+
+@app.post("/predict-cervical")
+def predict_cervical(data: CervicalInput):
+    input_data = np.array(data.values).reshape(1, -1)
+
+    prediction = cervical_model.predict(input_data)[0]
+    probability = cervical_model.predict_proba(input_data)[0]
+
+    confidence = round(float(max(probability)) * 100, 2)
+
+    return {
+        "prediction": "Cervical Cancer Risk Detected" if prediction == 1 else "Low Cervical Cancer Risk",
+        "risk": "High Risk" if prediction == 1 else "Low Risk",
+        "confidence": confidence,
+        "message": "This is an AI screening result, not a medical diagnosis."
+    }
+
+@app.post("/predict-cervical-csv")
+async def predict_cervical_csv(file: UploadFile = File(...)):
+    df = pd.read_csv(file.file, header=None)
+
+    values = df.iloc[0].values.reshape(1, -1)
+
+    prediction = cervical_model.predict(values)[0]
+    probability = cervical_model.predict_proba(values)[0]
+
+    confidence = round(float(max(probability)) * 100, 2)
+
+    return {
+        "prediction": "Cervical Cancer Risk Detected" if prediction == 1 else "Low Cervical Cancer Risk",
+        "risk": "High Risk" if prediction == 1 else "Low Risk",
+        "confidence": confidence,
+        "message": "CSV prediction completed. This is AI screening, not medical diagnosis."
+    }
+
+
+
+
+
+
+
+
+
