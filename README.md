@@ -307,20 +307,6 @@ NariHealth GeoAI aims to:
 
 By combining AI-powered diagnostics with geographic intelligence, NariHealth creates a scalable framework for preventive women's healthcare.
 
----
-
-## Team
-
-
-
-```text
-Team Name: Code With Us
-
-Members:
-• Barsha Mondal
-• Harsh Sahu
-
-```
 
 ---
 
