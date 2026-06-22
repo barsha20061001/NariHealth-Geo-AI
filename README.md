@@ -244,7 +244,7 @@ Add homepage screenshot here.
 ### Clone Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/NariHealth.git
+git clone https://github.com/barsha20061001/NariHealth.git
 cd NariHealth
 ```
 
@@ -311,15 +311,15 @@ By combining AI-powered diagnostics with geographic intelligence, NariHealth cre
 
 ## Team
 
-Add your team details here.
+
 
 ```text
-Team Name:
+Team Name: Code With Us
 
 Members:
-• Member 1
-• Member 2
-• Member 3
+• Barsha Mondal
+• Harsh Sahu
+
 ```
 
 ---
