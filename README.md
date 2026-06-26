@@ -207,7 +207,7 @@ NariHealth
 
 ### Home Page
 
-Add homepage screenshot here.
+
 
 
 <img width="1917" height="957" alt="image" src="https://github.com/user-attachments/assets/51334360-0ce3-4446-938d-f44e22841c4c" />
