@@ -210,34 +210,31 @@ NariHealth
 Add homepage screenshot here.
 
 ```md
-![Home](screenshots/home.png)
+<img width="1917" height="957" alt="image" src="https://github.com/user-attachments/assets/51334360-0ce3-4446-938d-f44e22841c4c" />
+
 ```
 
 ### AI Risk Engine
 
 ```md
-![AI Risk Engine](screenshots/airiskengine.png)
+<img width="1917" height="977" alt="image" src="https://github.com/user-attachments/assets/2a2dca8b-f12c-48cf-a8b7-efb5e23c3fd5" />
+
 ```
 
 ### GeoAI Hotspots
 
 ```md
-![Geo Hotspots](screenshots/hotspots.png)
-```
+<img width="1917" height="961" alt="image" src="https://github.com/user-attachments/assets/a7280a19-7b77-4d3d-97d5-4ab46c8536c7" />
 
-### Government Dashboard
-
-```md
-![Dashboard](screenshots/dashboard.png)
 ```
 
 ### Doctor Portal
 
 ```md
-![Doctor Portal](screenshots/doctor.png)
+<img width="1917" height="962" alt="image" src="https://github.com/user-attachments/assets/df7c006b-d0f2-43fd-a6c7-b35b524e82f8" />
+
 ```
 
----
 
 ## Installation
 
